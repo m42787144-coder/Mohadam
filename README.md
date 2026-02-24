@@ -24,7 +24,6 @@ font-family:'Vazirmatn',sans-serif;
 padding:20px;
 }
 
-/* نور لطیف متحرک */
 body::before{
 content:"";
 position:fixed;
@@ -56,7 +55,6 @@ overflow:hidden;
 transition:.8s ease;
 }
 
-/* خط طلایی بالا */
 .card::before{
 content:"";
 position:absolute;
@@ -125,13 +123,13 @@ display:block;
 چقدر برایم ارزشمند است.
 </div>
 
-<button id="btn" onclick="showVideo()" 
+<button id="btn" onclick="showVideo()"
 style="padding:14px 45px;border:none;border-radius:50px;background:linear-gradient(45deg,#b79b7f,#a8896b);color:white;cursor:pointer;transition:.4s;box-shadow:0 15px 40px rgba(0,0,0,.2);">
 تماشا کن
 </button>
 
 <div class="videoBox" id="videoBox">
-<video controls id="video">
+<video id="video" controls>
 <source src="movie.mp4" type="video/mp4">
 </video>
 </div>
@@ -140,12 +138,18 @@ style="padding:14px 45px;border:none;border-radius:50px;background:linear-gradie
 
 <script>
 function showVideo(){
+const text = document.getElementById("text");
+const btn = document.getElementById("btn");
+const videoBox = document.getElementById("videoBox");
+const video = document.getElementById("video");
+
 text.classList.add("fade");
 btn.classList.add("fade");
 
-setTimeout(()=>{
+setTimeout(function(){
 btn.style.display="none";
 videoBox.classList.add("show");
+video.play();
 },600);
 }
 </script>
